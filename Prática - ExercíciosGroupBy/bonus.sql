@@ -1,0 +1,1 @@
+SELECT schools.name AS school, courses.name AS course, COUNT("courseId") AS studentsCount FROM educations JOIN schools ON educations."schoolId" = schools.id JOiN courses ON educations."courseId" = courses.id WHERE educations.status = 'ongoing' OR educations.status = 'finished' GROUP BY schools.name, courses.name ORDER BY studentsCount DESC LIMIT 3 ;
